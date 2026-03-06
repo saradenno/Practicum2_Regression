@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+
+# Data bestanden (te groot voor GitLab)
+data/
+*.csv
+
+# Model output
+model.joblib
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS bestanden
+.DS_Store
+Thumbs.db
