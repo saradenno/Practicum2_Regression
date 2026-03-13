@@ -1,12 +1,10 @@
 # Virtual environment
 venv/
 
-# Data bestanden (te groot voor GitLab)
-data/
-*.csv
 
-# Model output
-model.joblib
+#Data bestanden (te groot voor GitLab)
+data/
+
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
