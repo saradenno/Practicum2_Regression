@@ -164,7 +164,7 @@ with tab1:
         if prediction >= 75:
             st.success(' Goede prestatie verwacht!')
         elif prediction >= 55:
-            st.warning('⚠️ Voldoende prestatie verwacht.')
+            st.warning(' Voldoende prestatie verwacht.')
         else:
             st.error('x Onvoldoende prestatie verwacht.')
 
@@ -172,7 +172,7 @@ with tab1:
 # TAB 2 — Synthetische data
 
 with tab2:
-    st.header('🔬 Synthetische Data Simulatie')
+    st.header(' Synthetische Data Simulatie')
     st.markdown('''
     Simuleer app-gebruik over een zelfgekozen periode in 2026.
     De 500 synthetische studenten worden gelijkmatig verspreid 
@@ -221,7 +221,7 @@ with tab2:
                 f'interval: ~{interval_minutes:.0f} minuten per voorspelling'
             )
 
-            if st.button('🚀 Simuleer 500 synthetische studenten',
+            if st.button(' Simuleer 500 synthetische studenten',
                          use_container_width=True):
                 predictions = np.clip(model.predict(synthetic_df), 0, 100)
 
