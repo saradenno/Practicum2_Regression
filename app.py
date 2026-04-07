@@ -7,7 +7,7 @@ from datetime import datetime, date
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-# ── Database setup ──
+# Database setup 
 def init_db():
     conn = sqlite3.connect('predictions.db')
     c = conn.cursor()
@@ -93,9 +93,9 @@ st.divider()
 # ── Twee tabbladen ──
 tab1, tab2 = st.tabs(['📋 Voorspelling', '🔬 Synthetische Data'])
 
-# ════════════════════════════════════════
+
 # TAB 1 — Handmatige voorspelling
-# ════════════════════════════════════════
+
 with tab1:
     st.header('📋 Studentgegevens invoeren')
     st.markdown('Vul de gegevens van een student in om de gemiddelde toetsscore te voorspellen.')
@@ -159,18 +159,18 @@ with tab1:
         save_prediction(input_data, prediction, source='manual')
 
         st.success(f'### Voorspelde gemiddelde score: **{prediction:.1f} / 100**')
-        st.caption('✅ Voorspelling opgeslagen in database.')
+        st.caption(' Voorspelling opgeslagen in database.')
 
         if prediction >= 75:
-            st.success('✅ Goede prestatie verwacht!')
+            st.success(' Goede prestatie verwacht!')
         elif prediction >= 55:
             st.warning('⚠️ Voldoende prestatie verwacht.')
         else:
-            st.error('❌ Onvoldoende prestatie verwacht.')
+            st.error('x Onvoldoende prestatie verwacht.')
 
-# ════════════════════════════════════════
+
 # TAB 2 — Synthetische data
-# ════════════════════════════════════════
+
 with tab2:
     st.header('🔬 Synthetische Data Simulatie')
     st.markdown('''
@@ -181,7 +181,7 @@ with tab2:
 
     try:
         synthetic_df = pd.read_csv('synthetic_data.csv')
-        st.success(f'✅ Synthetische dataset geladen: {len(synthetic_df)} rijen')
+        st.success(f' Synthetische dataset geladen: {len(synthetic_df)} rijen')
 
         st.subheader('Preview synthetische data')
         st.dataframe(synthetic_df.head(10), use_container_width=True)
@@ -211,11 +211,11 @@ with tab2:
         num_days = (end_ts - start_ts).days
 
         if num_days <= 0:
-            st.error('❌ Einddatum moet na de startdatum liggen.')
+            st.error(' Einddatum moet na de startdatum liggen.')
         else:
             interval_minutes = (num_days * 24 * 60) / len(synthetic_df)
             st.caption(
-                f'📊 **{start_date.strftime("%d %b %Y")}** → '
+                f' **{start_date.strftime("%d %b %Y")}** → '
                 f'**{end_date.strftime("%d %b %Y")}** '
                 f'({num_days} dagen) — '
                 f'interval: ~{interval_minutes:.0f} minuten per voorspelling'
@@ -258,7 +258,7 @@ with tab2:
                 conn.close()
 
                 st.success(
-                    f'✅ 500 voorspellingen gesimuleerd van '
+                    f' 500 voorspellingen gesimuleerd van '
                     f'{start_date.strftime("%d %b")} → '
                     f'{end_date.strftime("%d %b %Y")}!'
                 )
@@ -271,9 +271,9 @@ with tab2:
     except FileNotFoundError:
         st.error('synthetic_data.csv niet gevonden. Genereer eerst de synthetische data.')
 
-# ════════════════════════════════════════
+
 # GECOMBINEERD OVERZICHT — onder beide tabs
-# ════════════════════════════════════════
+
 st.divider()
 st.header('📊 Voorspellingenhistorie')
 
